@@ -1,3 +1,8 @@
 # Author
+* _**Michael Kramer**_
 
-Write here your name, email and BUID. 
+## Email Address
+* mgkramer@bu.edu
+
+### BUID
+* U17187772
