@@ -42,15 +42,33 @@ public class EmailGenerationSystem {
   public Email generateEmail(String customerType) {
     SemanticElementsFactory elementsFactory = null;
     Email email = null;
-    if (customerType.equals("business")) {
+    if (customerType.toLowerCase().equals("business")) {
       elementsFactory = new BusinessCustomerFactory();
       email = new BusinessCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
     }
-    else if (customerType.equals("frequent")) {
+    else if (customerType.toLowerCase().equals("frequent")) {
       elementsFactory = new FrequentCustomerFactory();
       email = new FrequentCustomerEmail(elementsFactory);
+      email.assembleEmail();
+      return email;
+    }
+    else if (customerType.toLowerCase().equals("new")) {
+      elementsFactory = new NewCustomerFactory();
+      email = new NewCustomerEmail(elementsFactory);
+      email.assembleEmail();
+      return email;
+    }
+    else if (customerType.toLowerCase().equals("returning")) {
+      elementsFactory = new ReturningCustomerFactory();
+      email = new ReturningCustomerEmail(elementsFactory);
+      email.assembleEmail();
+      return email;
+    }
+    else if (customerType.toLowerCase().equals("vip")) {
+      elementsFactory = new VipCustomerFactory();
+      email = new VipCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
     }

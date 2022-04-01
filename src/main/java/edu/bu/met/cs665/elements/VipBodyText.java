@@ -3,7 +3,7 @@ package edu.bu.met.cs665.elements;
 public class VipBodyText implements BodyText {
 
   private String text = "[VIP CUSTOMER BODY-TEXT]\nDear VIP Customer,"
-      + "\nour company values your continued...";
+      + "\n\tour company values your continued...";
 
   @Override
   public String bodyText() {

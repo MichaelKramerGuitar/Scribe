@@ -3,7 +3,7 @@ package edu.bu.met.cs665.elements;
 public class NewCustomerBodyText implements BodyText {
 
   private String text = "[NEW CUSTOMER BODY-TEXT]\nDear New Customer,"
-      + "\nour company...";
+      + "\n\tour company...";
 
   @Override
   public String bodyText() {

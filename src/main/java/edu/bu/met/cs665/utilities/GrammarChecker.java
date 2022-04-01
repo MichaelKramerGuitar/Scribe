@@ -33,7 +33,7 @@ public class GrammarChecker extends Checker {
    */
   @Override
   public String check(String element) {
-    // return element + " {\u2713GRAMMAR} ";
+    // return element + " {\u2713GRAMMAR} "; // unicode checkmark doesn't compile with maven
     return element + " {CHECKED GRAMMAR} ";
   }
 }
