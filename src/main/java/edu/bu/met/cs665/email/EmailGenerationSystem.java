@@ -101,7 +101,7 @@ public class EmailGenerationSystem {
   /**
    * The purpose of this method is to show the Singleton instance for testing.
    */
-  public void getConnectionId() {
-    System.out.println("The connection id is: " + connectionId);
+  public Timestamp getConnectionId() {
+    return (Timestamp) connectionId.clone();
   }
 }

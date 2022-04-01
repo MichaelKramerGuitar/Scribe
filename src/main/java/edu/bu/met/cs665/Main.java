@@ -3,7 +3,6 @@ package edu.bu.met.cs665;
 import edu.bu.met.cs665.email.Email;
 import edu.bu.met.cs665.email.EmailGenerationSystem;
 import edu.bu.met.cs665.email.InvalidEmailAddress;
-import edu.bu.met.cs665.example1.Person;
 import edu.bu.met.cs665.utilities.AsymmetricEncryptor;
 import edu.bu.met.cs665.utilities.GrammarChecker;
 import edu.bu.met.cs665.utilities.SpellChecker;
@@ -34,7 +33,7 @@ public class Main {
 
 
     EmailGenerationSystem generator = EmailGenerationSystem.getInstance();
-    generator.getConnectionId(); // test single instance first print
+    //generator.getConnectionId(); // test single instance first print
     Email businessEmail = generator.generateEmail("business");
     businessEmail = new GrammarChecker(businessEmail);
     businessEmail.assembleEmail(); // re-assemble grammar checked email
@@ -56,7 +55,7 @@ public class Main {
     }
 
     generator = EmailGenerationSystem.getInstance();
-    generator.getConnectionId(); // test single instance
+    //generator.getConnectionId(); // test single instance
     Email frequentEmail = generator.generateEmail("frequent");
     frequentEmail = new AsymmetricEncryptor(frequentEmail);
     frequentEmail.assembleEmail();
@@ -111,11 +110,6 @@ public class Main {
     }
     generator.send(vipCustomer);
     logSent(vipCustomer);
-  }
-
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getLastName();
   }
 
 }

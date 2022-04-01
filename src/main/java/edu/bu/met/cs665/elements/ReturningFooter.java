@@ -10,7 +10,7 @@ package edu.bu.met.cs665.elements;
  */
 public class ReturningFooter implements Footer {
 
-  private String footer = "[NEW CUSTOMER FOOTER]\n";
+  private String footer = "[RETURNING CUSTOMER FOOTER]\n";
 
   /**
    * The purpose of this method is to generate the semantic element and satisfy
