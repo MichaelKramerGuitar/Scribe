@@ -4,6 +4,8 @@ import edu.bu.met.cs665.email.Email;
 import edu.bu.met.cs665.email.EmailGenerationSystem;
 import edu.bu.met.cs665.email.InvalidEmailAddress;
 import edu.bu.met.cs665.example1.Person;
+import edu.bu.met.cs665.utilities.GrammarChecker;
+import edu.bu.met.cs665.utilities.SpellChecker;
 import org.apache.log4j.Logger;
 // import org.apache.log4j.PropertyConfigurator;
 
@@ -38,6 +40,10 @@ public class Main {
     EmailGenerationSystem generator = EmailGenerationSystem.getInstance();
     generator.getConnectionId(); // test single instance first print
     Email businessEmail = generator.generateEmail("business");
+    businessEmail = new GrammarChecker(businessEmail);
+    businessEmail.assembleEmail(); // re-assemble grammar checked email
+    businessEmail = new SpellChecker(businessEmail);
+    businessEmail.assembleEmail(); // re-assemble spell checked email
     try {
       businessEmail.setSender("info@scribe.com");
       businessEmail.setReceiver("somebody@gmail.com");
@@ -45,6 +51,8 @@ public class Main {
       System.out.println(e);
     }
     generator.send(businessEmail);
+
+    System.out.println();
 
     generator = EmailGenerationSystem.getInstance();
     generator.getConnectionId(); // test single instance
@@ -56,8 +64,6 @@ public class Main {
       System.out.println(e);
     }
     generator.send(frequentEmail);
-
-
 
   }
 

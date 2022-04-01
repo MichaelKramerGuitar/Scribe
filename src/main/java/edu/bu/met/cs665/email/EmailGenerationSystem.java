@@ -68,6 +68,7 @@ public class EmailGenerationSystem {
     Header header = email.getHeader();
     BodyText bodyText = email.getBodyText();
     Footer footer = email.getFooter();
+    System.out.println("\n\n\t\t\tSending email...\n");
     System.out.println("Sender: " + email.getSender()
         + "\nReceiver: " + email.getReceiver() + "\n");
     System.out.println(header.header());

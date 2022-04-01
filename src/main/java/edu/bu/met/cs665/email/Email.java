@@ -35,6 +35,7 @@ public abstract class Email {
     return footer;
   }
 
+
   /**
    * The purpose of this method is to set the sender of this email
    * @param sender String
@@ -73,6 +74,7 @@ public abstract class Email {
   public void setFooter(Footer footer) {
     this.footer = footer;
   }
+
 
   /**
    * The purpose of this method is to validate email addresses. Inspired by

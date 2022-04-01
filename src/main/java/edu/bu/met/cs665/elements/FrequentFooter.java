@@ -2,9 +2,15 @@ package edu.bu.met.cs665.elements;
 
 public class FrequentFooter implements Footer {
 
+  private String footer = "\n[FREQUENT CUSTOMER FOOTER]\n";
+
   @Override
   public String footer() {
-    return "\n[FREQUENT CUSTOMER FOOTER]\n";
+    return footer;
+  }
+
+  public void setFooter(String footer) {
+    this.footer = footer;
   }
 
 }
