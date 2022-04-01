@@ -15,6 +15,15 @@ public class Main {
 
   private static Logger logger = Logger.getLogger(Main.class);
 
+  /**
+   * The purpose of this method is to log when emails are successfully sent.
+   * @param email an Email object
+   */
+  public static void logSent(Email email) {
+    logger.info("\n*Email Sent*\nSender: "
+        + email.getSender() + "\nReceiver: "
+        + email.getReceiver());
+  }
 
   /**
    * A main method to run examples.
@@ -23,21 +32,6 @@ public class Main {
    */
   public static void main(String[] args) throws InvalidEmailAddress {
 
-    // This configuration is for setting up the log4j properties file.
-    // It is better to set this using java program arguments.
-    // PropertyConfigurator.configure("log4j.properties");
-
-    // Let us create an object of the Main class.
-//    Main m = new Main();
-//
-//    logger.info(m.doIt());
-
-//    logger.trace("Trace Message!");
-//    logger.debug("Debug Message!");
-//    logger.info("Info Message!");
-//    logger.warn("Warn Message!");
-//    logger.error("Error Message!");
-//    logger.fatal("Fatal Message!");
 
     EmailGenerationSystem generator = EmailGenerationSystem.getInstance();
     generator.getConnectionId(); // test single instance first print
@@ -55,6 +49,7 @@ public class Main {
       System.out.println(e);
     }
     generator.send(businessEmail);
+    logSent(businessEmail);
 
     for (int i = 0; i < 5; i++) {
       System.out.println();
@@ -72,6 +67,7 @@ public class Main {
       System.out.println(e);
     }
     generator.send(frequentEmail);
+    logSent(frequentEmail);
 
     for (int i = 0; i < 5; i++) {
       System.out.println();
@@ -85,6 +81,7 @@ public class Main {
       System.out.println(e);
     }
     generator.send(newCustomer);
+    logSent(newCustomer);
 
     for (int i = 0; i < 5; i++) {
       System.out.println();
@@ -98,6 +95,7 @@ public class Main {
       System.out.println(e);
     }
     generator.send(returningCustomer);
+    logSent(returningCustomer);
 
 
     for (int i = 0; i < 5; i++) {
@@ -112,6 +110,7 @@ public class Main {
       System.out.println(e);
     }
     generator.send(vipCustomer);
+    logSent(vipCustomer);
   }
 
   private String doIt() {

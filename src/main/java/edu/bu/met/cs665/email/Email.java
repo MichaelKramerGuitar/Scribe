@@ -5,6 +5,14 @@ import edu.bu.met.cs665.elements.Footer;
 import edu.bu.met.cs665.elements.Header;
 import java.util.regex.Pattern;
 
+/**
+ * The purpose of this class is to provide the abstraction from which concrete
+ * emails can be generated in the abstract factory pattern.
+ *
+ * @author Michael Kramer
+ *
+ * <p>CS665 Spring 2, 2022 Software Design Patterns</p>
+ */
 public abstract class Email {
 
   private String sender; // ex: info@company.com
@@ -13,8 +21,14 @@ public abstract class Email {
   private BodyText body;
   private Footer footer;
 
+  /**
+   * The purpose of this abstract method is such that subclasses can implement
+   * and assemble the semantic elements of an email according to their respective
+   * types.
+   */
   public abstract void assembleEmail();
 
+  // Getters
   public String getSender() {
     return sender;
   }
@@ -37,9 +51,9 @@ public abstract class Email {
 
 
   /**
-   * The purpose of this method is to set the sender of this email
+   * The purpose of this method is to set the sender of this email.
    * @param sender String
-   * @throws InvalidEmailAddress
+   * @throws InvalidEmailAddress if email is invalid
    */
   public void setSender(String sender) throws InvalidEmailAddress {
     boolean validAddress = validEmailAddress(sender);
@@ -51,18 +65,20 @@ public abstract class Email {
   }
 
   /**
-   * The purpose of this method is to set the receiver of this email
+   * The purpose of this method is to set the receiver of this email.
    * @param receiver String
-   * @throws InvalidEmailAddress
+   * @throws InvalidEmailAddress if email address is invalid.
    */
   public void setReceiver(String receiver) throws InvalidEmailAddress {
     boolean validAddress = validEmailAddress(receiver);
     if (validAddress) {
       this.receiver = receiver;
+    } else {
+      throw new InvalidEmailAddress("Receiver Email Address is invalid.");
     }
-    else throw new InvalidEmailAddress("Receiver Email Address is invalid.");
   }
 
+  // Setters
   public void setHeader(Header header) {
     this.header = header;
   }

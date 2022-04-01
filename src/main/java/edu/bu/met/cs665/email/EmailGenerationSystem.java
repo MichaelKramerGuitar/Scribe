@@ -5,11 +5,19 @@ import edu.bu.met.cs665.elements.Footer;
 import edu.bu.met.cs665.elements.Header;
 import java.sql.Timestamp;
 
+/**
+ * The purpose of this class is to implement the Singleton pattern for an
+ * email generation system as per the assigned requirements.
+ *
+ * @author Michael Kramer
+ *
+ * <p>CS665 Spring 2, 2022 Software Design Patterns</p>
+ */
 public class EmailGenerationSystem {
 
-  private static EmailGenerationSystem generator;
+  private static EmailGenerationSystem generator; // access modifiers are key to pattern
 
-  private static Timestamp connectionId; // or testing
+  private static Timestamp connectionId; // for testing
 
   /**
    * The purpose of this method is to enforce the Singleton pattern
@@ -47,26 +55,22 @@ public class EmailGenerationSystem {
       email = new BusinessCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
-    }
-    else if (customerType.toLowerCase().equals("frequent")) {
+    } else if (customerType.toLowerCase().equals("frequent")) {
       elementsFactory = new FrequentCustomerFactory();
       email = new FrequentCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
-    }
-    else if (customerType.toLowerCase().equals("new")) {
+    } else if (customerType.toLowerCase().equals("new")) {
       elementsFactory = new NewCustomerFactory();
       email = new NewCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
-    }
-    else if (customerType.toLowerCase().equals("returning")) {
+    } else if (customerType.toLowerCase().equals("returning")) {
       elementsFactory = new ReturningCustomerFactory();
       email = new ReturningCustomerEmail(elementsFactory);
       email.assembleEmail();
       return email;
-    }
-    else if (customerType.toLowerCase().equals("vip")) {
+    } else if (customerType.toLowerCase().equals("vip")) {
       elementsFactory = new VipCustomerFactory();
       email = new VipCustomerEmail(elementsFactory);
       email.assembleEmail();
